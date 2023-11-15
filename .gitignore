@@ -26,6 +26,8 @@ local.properties
 
 # IDEA/Android Studio project files, because
 # the project can be imported from settings.gradle.kts
+misc.xml
+
 *.iml
 .idea/*
 !.idea/copyright
