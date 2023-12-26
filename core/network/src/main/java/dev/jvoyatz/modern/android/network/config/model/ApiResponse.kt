@@ -1,4 +1,4 @@
-package dev.jvoyatz.modern.android.network.models
+package dev.jvoyatz.modern.android.network.config.model
 
 /*
  * Created by John Voyatzis on 10/09/2018.
@@ -66,6 +66,7 @@ sealed interface ApiResponse<S, E> {
         fun <S, E> success(body: S): ApiResponse<S, E> = ApiSuccess(body)
     }
 }
+
 
 /**
  * An alias used to create  [ApiResponse] instances when the response in of a Void typ.

@@ -20,7 +20,7 @@ ksp = "1.9.10-1.0.13"
 
 
 #retrofit
-okhttp = "4.10.0"
+okhttp = "4.11.0"
 retrofit = "2.9.0"
 moshi = "1.15.0"
 
@@ -37,6 +37,7 @@ timber = "5.0.1"
 appcompat = "1.6.1"
 material = "1.9.0"
 org-jetbrains-kotlin-android = "1.9.0"
+guava = "33.0.0-android"
 
 [libraries]
 
@@ -69,6 +70,9 @@ mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 truth = { module = "com.google.truth:truth", version.ref = "truth" }
 turbine = { module = "app.cash.turbine:turbine", version.ref = "turbine" }
+
+#other
+guava = { module = "com.google.guava:guava" , version.ref = "guava" }
 
 # Dependencies of the included build-logic
 android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "androidGradlePlugin" }

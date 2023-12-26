@@ -1,6 +1,6 @@
-package dev.jvoyatz.modern.android.network.config
+package dev.jvoyatz.modern.android.network.config.utils
 
-import dev.jvoyatz.modern.android.network.models.ApiResponse
+import dev.jvoyatz.modern.android.network.config.model.ApiResponse
 import okhttp3.ResponseBody
 import retrofit2.Converter
 import retrofit2.HttpException

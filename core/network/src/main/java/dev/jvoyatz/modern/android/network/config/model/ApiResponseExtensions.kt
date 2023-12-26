@@ -1,6 +1,6 @@
-package dev.jvoyatz.modern.android.network.models
+package dev.jvoyatz.modern.android.network.config.model
 
-import dev.jvoyatz.modern.android.network.models.ApiResponse.*
+import dev.jvoyatz.modern.android.network.config.model.ApiResponse.*
 
 
 /**

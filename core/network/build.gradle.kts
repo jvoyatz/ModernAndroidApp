@@ -14,4 +14,6 @@ android {
 
 dependencies {
     implementation(libs.bundles.networking)
+    implementation(libs.guava)
+    implementation(libs.bundles.test)
 }

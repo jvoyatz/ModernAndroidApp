@@ -21,3 +21,4 @@ dependencyResolutionManagement {
 rootProject.name = "ModernAndroid"
 include(":app")
 include(":core:common")
+include(":core:network")

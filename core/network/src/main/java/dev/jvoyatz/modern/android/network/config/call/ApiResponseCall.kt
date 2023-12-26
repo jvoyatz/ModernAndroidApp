@@ -1,6 +1,7 @@
-package dev.jvoyatz.modern.android.network.config
+package dev.jvoyatz.modern.android.network.config.call
 
-import dev.jvoyatz.modern.android.network.models.ApiResponse
+import dev.jvoyatz.modern.android.network.config.utils.asApiResponse
+import dev.jvoyatz.modern.android.network.config.model.ApiResponse
 import okhttp3.Request
 import okhttp3.ResponseBody
 import okio.Timeout
@@ -9,7 +10,6 @@ import retrofit2.Callback
 import retrofit2.Converter
 import retrofit2.Response
 import java.lang.reflect.Type
-import kotlin.reflect.jvm.internal.impl.util.CheckResult.SuccessCheck
 
 /**
  * A custom [Call] which encapsulates a normal Retrofit call and transforms the
@@ -24,7 +24,8 @@ internal class ApiResponseCall<Success, Error>(
     /**
      * Create a new, identical call to this one which can be enqueued or executed even if this call has already been.
      */
-    override fun clone(): Call<ApiResponse<Success, Error>> = ApiResponseCall(delegate.clone(), errorConverter, successType)
+    override fun clone(): Call<ApiResponse<Success, Error>> =
+        ApiResponseCall(delegate.clone(), errorConverter, successType)
 
     /**
      * Synchronously send the request and return its response.
@@ -71,16 +72,20 @@ internal class ApiResponseCall<Success, Error>(
      * talking to the server, creating the request, or processing the response.
      */
     override fun enqueue(callback: Callback<ApiResponse<Success, Error>>) = synchronized(this) {
-        delegate.enqueue(object: Callback<Success> {
-            override fun onResponse(call: Call<Success>, response: Response<Success>) {
-                val apiResponse = response.asApiResponse(successType, errorConverter)
-                callback.onResponse(this@ApiResponseCall, Response.success(apiResponse))
-            }
+        try {
+            delegate.enqueue(object : Callback<Success> {
+                override fun onResponse(call: Call<Success>, response: Response<Success>) {
+                    val apiResponse = response.asApiResponse(successType, errorConverter)
+                    callback.onResponse(this@ApiResponseCall, Response.success(apiResponse))
+                }
 
-            override fun onFailure(call: Call<Success>, t: Throwable) {
-                val apiResponse = t.asApiResponse<Success, Error>(successType, errorConverter)
-                callback.onResponse(this@ApiResponseCall, Response.success(apiResponse))
-            }
-        })
+                override fun onFailure(call: Call<Success>, t: Throwable) {
+                    val apiResponse = t.asApiResponse<Success, Error>(successType, errorConverter)
+                    callback.onResponse(this@ApiResponseCall, Response.success(apiResponse))
+                }
+            })
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 }
