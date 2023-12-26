@@ -13,11 +13,11 @@ import retrofit2.Response
 import java.lang.reflect.Type
 
 /**
- * A [retrofit2.CallAdapter] used to adapt our response to [ApiResponseCall]
+ * A [retrofit2.CallAdapter] used to adapt our response to [dev.jvoyatz.modern.android.network.config.call.ApiResponseCall]
  * otherwise it returns null?
  *
  * By adapt, we mean that it detects that we attempt tou wrap our response inside [dev.jvoyatz.modern.android.network.models.ApiResponse]
- * so it calls [ApiResponseCall] to complete this process
+ * so it calls [dev.jvoyatz.modern.android.network.config.call.ApiResponseCall] to complete this process
  *
  * @param The type of the object that this adapter uses when payload is deserialized into a Java object
  */

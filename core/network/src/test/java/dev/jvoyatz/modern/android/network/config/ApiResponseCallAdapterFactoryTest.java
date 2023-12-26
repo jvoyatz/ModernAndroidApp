@@ -21,6 +21,7 @@ import retrofit2.Call;
 import retrofit2.CallAdapter;
 import retrofit2.Retrofit;
 
+/** @noinspection rawtypes*/
 public class ApiResponseCallAdapterFactoryTest {
     @Rule
     public final MockWebServer server = new MockWebServer();
@@ -132,7 +133,6 @@ public class ApiResponseCallAdapterFactoryTest {
         //when
         CallAdapter<?, ?> callAdapter = factory.get(type, new Annotation[0], retrofit);
         Type responseType = callAdapter.responseType();
-        System.out.println(responseType);
 
         //then
         Truth.assertThat(responseType).isEqualTo(String.class);
@@ -145,7 +145,6 @@ public class ApiResponseCallAdapterFactoryTest {
         //when
         CallAdapter<?, ?> callAdapter = factory.get(type, new Annotation[0], retrofit);
         Type responseType = callAdapter.responseType();
-        System.out.println(responseType);
 
         //then
         Truth.assertThat(responseType).isEqualTo(String.class);
@@ -185,7 +184,7 @@ public class ApiResponseCallAdapterFactoryTest {
         //when
         CallAdapter<?, ?> callAdapter = factory.get(type, new Annotation[0], retrofit);
         Type responseType = callAdapter.responseType();
-        System.out.println(responseType);
+
         //then
         Truth.assertThat(responseType).isEqualTo(new TypeToken<List<String>>() {}.getType());
     }

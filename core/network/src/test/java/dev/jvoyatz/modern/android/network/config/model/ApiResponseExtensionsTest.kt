@@ -1,8 +1,8 @@
 package dev.jvoyatz.modern.android.network.config.model
 
-import dev.jvoyatz.modern.android.network.config.model.ApiResponse
-import dev.jvoyatz.modern.android.network.config.model.invoke
-import org.junit.Assert.*
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNotNull
+import org.junit.Assert.assertNull
 import org.junit.Test
 
 class ApiResponseExtensionsTest {

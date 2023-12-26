@@ -12,7 +12,7 @@ import java.lang.reflect.Type
 internal class IntentedError
 
 internal class IntentedException(): IllegalStateException() {
-    override val message: String?
+    override val message: String
         get() = "an error that we want to happen"
 }
 

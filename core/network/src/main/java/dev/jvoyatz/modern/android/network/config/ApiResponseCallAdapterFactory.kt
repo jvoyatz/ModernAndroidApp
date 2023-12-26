@@ -17,7 +17,7 @@ import java.lang.reflect.Type
  *      fun sampleApiCall(): ApiResponse<S, E>
  *  ```
  *
- *  So we always wait to get a Call<ApiResponse<...>> as returns by [ApiResponseCall]
+ *  So we always wait to get a Call<ApiResponse<...>> as returns by [dev.jvoyatz.modern.android.network.config.call.ApiResponseCall]
  *  in order to return the appropriate type, otherwise we return null
  */
 internal class ApiResponseCallAdapterFactory : CallAdapter.Factory() {
