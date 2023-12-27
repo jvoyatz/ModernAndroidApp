@@ -150,6 +150,7 @@ class CallUtilitiesTest {
 
         //when
         val response = safeRawApiCall<String, Unit> {
+            @Suppress("ALWAYS_NULL")
             body!!
         }
 

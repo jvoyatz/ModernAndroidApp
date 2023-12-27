@@ -19,7 +19,8 @@ import java.lang.reflect.Type
  * By adapt, we mean that it detects that we attempt tou wrap our response inside [dev.jvoyatz.modern.android.network.models.ApiResponse]
  * so it calls [dev.jvoyatz.modern.android.network.config.call.ApiResponseCall] to complete this process
  *
- * @param The type of the object that this adapter uses when payload is deserialized into a Java object
+ * @param successType The type of the object that this adapter uses when payload is deserialized into a Java object
+ * @param errorConverter an implementation of [Converter] that deserializes the error payload to the specified type
  */
 internal class ApiResponseCallDeferredAdapter<S : Any, E : Any>(
     private val successType: Type,

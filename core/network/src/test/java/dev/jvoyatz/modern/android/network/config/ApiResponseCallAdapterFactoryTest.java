@@ -3,7 +3,6 @@ package dev.jvoyatz.modern.android.network.config;
 import com.google.common.reflect.TypeToken;
 import com.google.common.truth.Truth;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -12,7 +11,6 @@ import java.lang.annotation.Annotation;
 import java.lang.reflect.Type;
 import java.util.List;
 
-import dev.jvoyatz.modern.android.network.config.ApiResponseCallAdapterFactory;
 import dev.jvoyatz.modern.android.network.config.model.ApiResponse;
 import dev.jvoyatz.modern.android.network.utils.StringConverterFactory;
 import kotlin.Unit;
@@ -22,7 +20,7 @@ import retrofit2.Call;
 import retrofit2.CallAdapter;
 import retrofit2.Retrofit;
 
-/** @noinspection rawtypes*/
+/** @noinspection rawtypes, DataFlowIssue */
 public class ApiResponseCallAdapterFactoryTest {
     @Rule
     public final MockWebServer server = new MockWebServer();

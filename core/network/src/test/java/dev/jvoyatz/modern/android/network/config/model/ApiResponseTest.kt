@@ -307,7 +307,6 @@ class ApiResponseTest {
     fun `onSuccess with map block check that the expected type is given in onExecute block when apiResponse is an instance of ApiSuccess`() {
         //given
         var isExecuted = false
-        val mappedValue = 2
         var returnedValue: Int? = null
 
         //when

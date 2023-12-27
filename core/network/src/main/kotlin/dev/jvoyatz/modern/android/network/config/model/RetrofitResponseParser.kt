@@ -100,6 +100,7 @@ internal fun <S, E> Throwable.asApiResponse(
     is HttpException -> {
         val response = this.response()
         response?.let {
+            @Suppress("UNCHECKED_CAST")
             response.asApiResponse(successType, errorConverter) as ApiResponse<S, E>
         } ?: ApiResponse.httpError<S, E>(this.code(), null)
     }

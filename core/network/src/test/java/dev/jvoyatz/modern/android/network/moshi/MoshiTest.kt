@@ -106,7 +106,6 @@ class MoshiTest {
     @Test
     fun `on Invalid Error Response, can handle the body correctly`() {
         //given
-        val expected = "Think of a new business idea"
         server.enqueue(
             MockResponse().setResponseCode(404)
                 .setBody(

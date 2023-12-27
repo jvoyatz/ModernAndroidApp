@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.flowOf
 
 /**
- * Extension functions on [dev.jvoyatz.modern.android.network.config.model.ApiResponse] types
+ * Extension functions on ApiResponse types
  */
 
 /**
