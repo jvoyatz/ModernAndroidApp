@@ -12,6 +12,7 @@ import java.lang.annotation.Annotation;
 import java.lang.reflect.Type;
 import java.util.List;
 
+import dev.jvoyatz.modern.android.network.config.ApiResponseCallAdapterFactory;
 import dev.jvoyatz.modern.android.network.config.model.ApiResponse;
 import dev.jvoyatz.modern.android.network.utils.StringConverterFactory;
 import kotlin.Unit;

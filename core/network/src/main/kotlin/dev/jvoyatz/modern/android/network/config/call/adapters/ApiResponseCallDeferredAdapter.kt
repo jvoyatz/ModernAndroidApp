@@ -1,6 +1,6 @@
 package dev.jvoyatz.modern.android.network.config.call.adapters
 
-import dev.jvoyatz.modern.android.network.config.utils.asApiResponse
+import dev.jvoyatz.modern.android.network.config.model.asApiResponse
 import dev.jvoyatz.modern.android.network.config.model.ApiResponse
 import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.Deferred

@@ -3,6 +3,7 @@ package dev.jvoyatz.modern.android.network.config.call.adapters
 import com.google.common.truth.Truth
 import dev.jvoyatz.modern.android.network.config.ApiResponseCallAdapterFactory
 import dev.jvoyatz.modern.android.network.config.model.ApiResponse
+import dev.jvoyatz.modern.android.network.config.model.asUnexpectedError
 import dev.jvoyatz.modern.android.network.utils.CompletableCall
 import dev.jvoyatz.modern.android.network.utils.IntentedError
 import dev.jvoyatz.modern.android.network.utils.IntentedErrorConverterFactory
@@ -176,9 +177,9 @@ class ApiResponseCallAdapterTest {
             val response = api.getText()
 
             //assert
-            Truth.assertThat(response.isTypeOf<ApiResponse.HttpError<String, String>>()).isTrue()
-            val error = (response as ApiResponse.HttpError<String, String>).errorBody
-            Truth.assertThat(error).isNull()
+            Truth.assertThat(response.isTypeOf<ApiResponse.UnexpectedError<String, String>>()).isTrue()
+            val error = response.asUnexpectedError()?.error
+            Truth.assertThat(error).isNotNull()
         }
 
     @Test

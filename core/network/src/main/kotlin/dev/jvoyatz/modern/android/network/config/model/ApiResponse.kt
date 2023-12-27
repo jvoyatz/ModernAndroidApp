@@ -36,22 +36,36 @@ sealed interface ApiResponse<S, E> {
     /**
      * sealed interface for Error
      */
-    sealed interface ApiError<S, E> : ApiResponse<S, E>
+    sealed interface ApiError<S, E> : ApiResponse<S, E>{
+        fun error(): String
+    }
 
     /**
      * Received a response with an error
      */
-    data class HttpError<S, E>(val code: Int?, val errorBody: E?) : ApiError<S, E>
+    data class HttpError<S, E>(val code: Int?, val errorBody: E?) : ApiError<S, E> {
+        override fun error(): String {
+            return "code [$code], error [${errorBody ?: ERROR_UNKNOWN}]"
+        }
+    }
 
     /**
      * Network error, IO Exception
      */
-    data class NetworkError<S, E>(val error: Throwable?) : ApiError<S, E>
+    data class NetworkError<S, E>(val error: Throwable?) : ApiError<S, E> {
+        override fun error(): String {
+            return "error [${error?.message ?: ERROR_UNKNOWN}]"
+        }
+    }
 
     /**
      * Unknown Error during request
      */
-    data class UnexpectedError<S, E>(val error: Throwable?) : ApiError<S, E>
+    data class UnexpectedError<S, E>(val error: Throwable?) : ApiError<S, E>{
+        override fun error(): String {
+            return "error [${error?.message ?: ERROR_UNKNOWN}]"
+        }
+    }
 
     companion object {
         fun <S, E> httpError(code: Int? = null, errorBody: E? = null): ApiResponse<S, E> =
@@ -66,7 +80,7 @@ sealed interface ApiResponse<S, E> {
         fun <S, E> success(body: S): ApiResponse<S, E> = ApiSuccess(body)
     }
 }
-
+internal const val ERROR_UNKNOWN = "unknown"
 
 /**
  * An alias used to create  [ApiResponse] instances when the response in of a Void typ.

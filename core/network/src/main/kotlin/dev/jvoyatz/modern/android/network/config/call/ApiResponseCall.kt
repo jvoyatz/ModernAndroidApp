@@ -1,6 +1,6 @@
 package dev.jvoyatz.modern.android.network.config.call
 
-import dev.jvoyatz.modern.android.network.config.utils.asApiResponse
+import dev.jvoyatz.modern.android.network.config.model.asApiResponse
 import dev.jvoyatz.modern.android.network.config.model.ApiResponse
 import okhttp3.Request
 import okhttp3.ResponseBody

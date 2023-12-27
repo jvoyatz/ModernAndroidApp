@@ -1,6 +1,7 @@
 package dev.jvoyatz.modern.android.network.config.call
 
 import com.google.common.truth.Truth
+import dev.jvoyatz.modern.android.network.config.call.ApiResponseCall
 import dev.jvoyatz.modern.android.network.config.model.ApiResponse
 import dev.jvoyatz.modern.android.network.utils.CompletableCall
 import dev.jvoyatz.modern.android.network.utils.isTypeOf
