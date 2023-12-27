@@ -122,7 +122,10 @@ inline fun <S, E, V> ApiResponse<S, E>.onSuccess(
     crossinline onExecute: V.() -> Unit
 ): ApiResponse<S, E> = apply {
     if (this is ApiSuccess) {
-        onExecute(body.mapper())
+        body.mapper().let {
+            println("!!!$it")
+            it.onExecute()
+        }
     }
 }
 
@@ -248,7 +251,7 @@ suspend inline fun <S, E> ApiResponse<S, E>.onSuspendedNetworkError(
  *
  * @param onExecute, a lambda block tha executes a certain action
  */
-inline fun <S, E> ApiResponse<S, E>.onUnknownError(
+inline fun <S, E> ApiResponse<S, E>.onUnexpectedError(
     crossinline onExecute: UnexpectedError<S, E>.() -> Unit
 ): ApiResponse<S, E> = apply {
     if (this is UnexpectedError) {
@@ -262,7 +265,7 @@ inline fun <S, E> ApiResponse<S, E>.onUnknownError(
  *
  * @param onExecute, a lambda block tha executes a certain action
  */
-suspend inline fun <S, E> ApiResponse<S, E>.onSuspendedUnknownError(
+suspend inline fun <S, E> ApiResponse<S, E>.onSuspendedUnexpectedError(
     crossinline onExecute: suspend UnexpectedError<S, E>.() -> Unit
 ): ApiResponse<S, E> = apply {
     if (this is UnexpectedError) {
