@@ -72,7 +72,8 @@ truth = { module = "com.google.truth:truth", version.ref = "truth" }
 turbine = { module = "app.cash.turbine:turbine", version.ref = "turbine" }
 
 #other
-guava = { module = "com.google.guava:guava" , version.ref = "guava" }
+guava = { module = "com.google.guava:guava", version.ref = "guava" }
+javax-inject = { module = "javax.inject:javax.inject", version = "1" }
 
 # Dependencies of the included build-logic
 android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "androidGradlePlugin" }

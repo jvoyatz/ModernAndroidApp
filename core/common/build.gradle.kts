@@ -7,4 +7,5 @@ dependencies {
     implementation(libs.junit)
     implementation(libs.coroutines)
     implementation(libs.retrofit)
+    implementation(libs.javax.inject)
 }
