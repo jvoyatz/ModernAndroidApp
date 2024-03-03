@@ -1,5 +1,6 @@
 import com.android.build.api.dsl.ApplicationExtension
 import com.android.build.api.variant.LibraryAndroidComponentsExtension
+import com.android.build.gradle.LibraryExtension
 import dev.jvoyatz.modern.android.TARGETSDK
 import dev.jvoyatz.modern.android.configureKotlinAndroid
 import dev.jvoyatz.modern.android.disableUnnecessaryAndroidTests
@@ -16,7 +17,7 @@ class AndroidLibConventionPlugin : Plugin<Project> {
                 apply("org.jetbrains.kotlin.android")
             }
 
-            extensions.configure<ApplicationExtension> {
+            extensions.configure<LibraryExtension> {
                 configureKotlinAndroid(this)
                 defaultConfig.targetSdk = TARGETSDK
             }

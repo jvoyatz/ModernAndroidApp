@@ -1,3 +1,8 @@
+@file:Suppress("UnstableApiUsage")
+
+include(":core:network")
+
+
 pluginManagement {
     includeBuild("build-logic")
     repositories {
@@ -15,4 +20,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = "ModernAndroid"
 include(":app")
- 
+include(":core:common")
+include(":core:network")
