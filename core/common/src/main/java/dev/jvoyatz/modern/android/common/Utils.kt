@@ -16,7 +16,9 @@ inline fun <I, O> mapList(input: List<I>?, mapper: (I) -> O): List<O> {
 }
 
 /**
- * Same as the [mapList] but it is an extension function on
- * a receiver object, a list of type [I]
+ * Same as the [mapList] above,
+ * though defined as a receiver function on type [List] instances of type [I]
+ *
+ * @receiver List<I> types can invoke this method to map their items to [O]
  */
 inline fun <I, O> List<I>?.mapList(mapper: (I) -> O): List<O> = mapList(this, mapper)
